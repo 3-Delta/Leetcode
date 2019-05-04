@@ -48,6 +48,13 @@
     <Compile Include="Src\Hard\4\CenterNum.cs" />
     <Compile Include="Src\Middle\2\TwoNumAdd.cs" />
     <Compile Include="Src\Simple\1\TwoSum.cs" />
+    <Compile Include="Supports\IntArray\IntArray.cs" />
+    <Compile Include="Supports\SingleList\SingleList.cs" />
+    <Compile Include="Supports\B+\B+.cs" />
+    <Compile Include="Supports\BinaryTree\BinaryTree.cs" />
+    <Compile Include="Supports\LinkList\LinkList.cs" />
+    <Compile Include="Supports\RBTree\RBTree.cs" />
+    <Compile Include="Supports\B -\B -.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

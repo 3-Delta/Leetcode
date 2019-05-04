@@ -11,6 +11,7 @@ namespace LeetCode
         static void Main(string[] args)
         {
             TwoSum.Func();
+            TwoNumAdd.Func();
 
             Console.ReadKey();
         }
