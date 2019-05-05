@@ -14,7 +14,7 @@ namespace LeetCode
             TwoSum.Func();
             TwoNumAdd.Func();
 
-            point2offer
+            // point2offer
             _3.Func();
             _4.Func();
             _5.Func();
