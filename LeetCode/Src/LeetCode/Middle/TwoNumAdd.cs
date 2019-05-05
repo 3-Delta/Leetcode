@@ -11,6 +11,6 @@ public class TwoNumAdd
         SingleList<int> left = new SingleList<int>(new List<int>() { 9, 9, 9});
         SingleList<int> right = new SingleList<int>(new List<int>() { 9, 9, 9, 9 });
         SingleList<int> target = SingleList<int>.Add(left, right);
-        target?.Print();
+        target?.PrintXunhuanPre();
     }
 }

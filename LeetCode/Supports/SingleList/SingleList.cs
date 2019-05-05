@@ -113,13 +113,50 @@ public class SingleList<T>
         }
         return ret;
     }
-    public void Print()
+    public void PrintXunhuanPre()
     {
         for (SingleListNode<T> current = head; current != null; current = current.next)
         {
             Console.WriteLine(current.value);
         }
         Console.WriteLine("Over");
+    }
+    public void PrintXunhuanPost()
+    {
+        Stack<SingleListNode<T>> stack = new Stack<SingleListNode<T>>();
+        for (SingleListNode<T> current = head; current != null; current = current.next)
+        {
+            stack.Push(current);
+        }
+        foreach (SingleListNode<T> current in stack)
+        {
+            Console.WriteLine(current);
+        }
+        Console.WriteLine("Over");
+    }
+    public void PrintDGPre(SingleListNode<T> head)
+    {
+        if (head != null)
+        {
+            Console.WriteLine(head.value);
+            PrintDGPre(head.next);
+        }
+        else
+        {
+            Console.WriteLine("Over");
+        }
+    }
+    public void PrintDGPost(SingleListNode<T> head)
+    {
+        if (head != null)
+        {
+            PrintDGPost(head.next);
+            Console.WriteLine(head.value);
+        }
+        else
+        {
+            Console.WriteLine("Over");
+        }
     }
     public static SingleList<T> Connect(SingleList<T> left, SingleList<T> right)
     {
