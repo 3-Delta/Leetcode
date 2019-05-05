@@ -20,6 +20,7 @@ public static class _10
         while (i < sizeof(int)) // 或者i != 0
         {
             int num = 1 << i;
+            // 不能(target & num) == 1
             if ((target & num) != 0) { ++ret; }
             ++i;
         }
