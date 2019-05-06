@@ -104,4 +104,20 @@ public static class Find
 
         return -1;
     }
+    public static int FindIndexInRange<T>(T target, List<T> nums, int left, int right)
+    {
+        int index = -1;
+        if (nums != null && nums.Count > 0 && 0 <= left && left <= right && right < nums.Count)
+        {
+            for (int i = 0, count = nums.Count; i < count; ++i)
+            {
+                if (nums[i].Equals(target))
+                {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        return index;
+    }
 }

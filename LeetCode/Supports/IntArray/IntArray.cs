@@ -6,5 +6,11 @@ using System.Threading.Tasks;
 
 public static class IntArray
 {
-
+    public static void Print(int[] array)
+    {
+        foreach (var i in array)
+        {
+            Console.Write(i + "   ");
+        }
+    }
 }

@@ -11,8 +11,8 @@ namespace LeetCode
         static void Main(string[] args)
         {
             // leetcode
-            TwoSum.Func();
-            TwoNumAdd.Func();
+            //TwoSum.Func();
+            //TwoNumAdd.Func();
 
             // point2offer
 
@@ -20,8 +20,13 @@ namespace LeetCode
             //_4.Func();
             //_5.Func();
             //_9.Func();
-            _10.Func();
-            _100.Func();
+            //_10.Func();
+            //_100.Func();
+
+            _6.Func();
+            _7_5.Func();
+
+            Sort.Func();
 
 
             Console.ReadKey();
