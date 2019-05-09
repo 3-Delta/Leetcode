@@ -36,16 +36,16 @@ public class SingleList<T>
     {
         CreateXunHuan(elements, circle);
     }
-    public SingleList(SingleList<T> target)
+    public SingleList(SingleListNode<T> targetHead)
     {
-        if (target != null)
+        if (targetHead != null)
         {
             int i = 0;
             SingleListNode<T> prev = null;
-            for (var node = head; node != null; node = node.next)
+            for (var node = targetHead; node != null; node = node.next)
             {
                 // 环形链表出口，否则死循环
-                if (target.head == node)
+                if (targetHead == node && prev != null)
                 {
                     // 构造环形链表
                     prev.next = head;
@@ -60,6 +60,7 @@ public class SingleList<T>
             }
         }
     }
+    public SingleList(SingleList<T> target) : this(target?.head) { }
     public void CreateXunHuan(List<T> elements, bool circle = false)
     {
         if (elements != null && elements.Count > 0)
@@ -146,7 +147,7 @@ public class SingleList<T>
             if (current == head ) { ++circle; }
             if (circle > 1)
             {
-                return;
+                break;
             }
             Console.WriteLine(current.value);
         }
@@ -269,16 +270,34 @@ public class SingleList<T>
     }
     public void ReverseXunhuan()
     {
-
+        // 完美的解决方法
+        SingleListNode<T> prev = null;
+        for (SingleListNode<T> current = head; current != null;)
+        {
+            SingleListNode<T> next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+    public void ReverseDG()
+    {
+        head = ReverseDG(head, null);
     }
     public SingleListNode<T> ReverseDG(SingleListNode<T> head, SingleListNode<T> prev)
     {
-        SingleListNode<T> ret = head;
-        //if (head != null)
-        //{
-        //    ReverseDG(head.next, head);
-        //}
-
+        SingleListNode<T> ret = null;
+        if (head != null)
+        {
+            SingleListNode<T> next = head.next;
+            head.next = prev;
+            ret = ReverseDG(next, head);
+        }
+        else
+        {
+            ret = prev;
+        }
         return ret;
     }
     public SingleListNode<T> FindXunhuan(T value)
@@ -368,14 +387,32 @@ public class SingleList<T>
 
     public static SingleList<int> MergeDG(SingleList<int> left, SingleList<int> right)
     {
-        return MergeDG(left.head, right.head);
+        return new SingleList<int>(MergeDG(left.head, right.head));
     }
-    public static SingleList<int> MergeDG(SingleListNode<int> left, SingleListNode<int> right)
+    public static SingleListNode<int> MergeDG(SingleListNode<int> left, SingleListNode<int> right)
     {
-        SingleList<int> ret = null;
+        SingleListNode<int> ret = null;
         if (left != null && right != null)
         {
-
+            if (left.value < right.value)
+            {
+                ret = new SingleListNode<int>(left.value);
+                ret.next = MergeDG(left.next, right);
+            }
+            else
+            {
+                ret = new SingleListNode<int>(right.value);
+                ret.next = MergeDG(left, right.next);
+            }
+        }
+        // 两个递归出口
+        else if (left != null)
+        {
+            ret = left;
+        }
+        else if (right != null)
+        {
+            ret = right;
         }
         return ret;
     }

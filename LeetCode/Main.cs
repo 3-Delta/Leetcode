@@ -28,7 +28,12 @@ namespace LeetCode
             //_13.Func();
             //_14.Func();
             //_15.Func();
-            _17.Func();
+            _16.Func();
+
+            // 归并测试
+            //_17.Func();
+            //IntArray.MergeDG(new int[] {1, 3, 5, 7, 9, 11 }, new int[] { 0, 2, 4, 6, 8 });
+            //IntArray.Print(IntArray.MergeXunhuan(new int[] { 1, 3, 5, 7, 9, 11 }, new int[] { 0, 2, 4, 6, 8 }));
 
             // 测试intarray的merge以及链表的merge以及环形链表的clone
 

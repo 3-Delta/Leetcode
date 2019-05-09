@@ -71,22 +71,27 @@ public static class IntArray
     }
     public static void MergeDG(int[] left, int l, int[] right, int r, int[] target, int index)
     {
-        // 错误做法， 各种条件集中起来
-
-        //if (left != null && l < left.Length && right != null && r < right.Length && target != null && index < target.Length)
-        //{
-        //    if (left[l] < right[r])
-        //    {
-        //        target[index++] = left[l];
-        //        MergeDG(left, l + 1, right, r, target, index);
-        //    }
-        //    else
-        //    {
-        //        target[index++] = right[r];
-        //        MergeDG(left, l, right, r + 1, target, index);
-        //    }
-        //}
-
+        if (left != null && right != null && target != null && 0 <= index && index < target.Length)
+        {
+            if (l < left.Length && r < right.Length)
+            {
+                if (left[l] < right[r])
+                {
+                    target[index++] = left[l];
+                    MergeDG(left, l + 1, right, r, target, index);
+                }
+                else
+                {
+                    target[index++] = right[r];
+                    MergeDG(left, l, right, r + 1, target, index);
+                }
+            }
+            else
+            {
+                while (l < left.Length) { target[index++] = left[l++]; }
+                while (r < right.Length) { target[index++] = right[r++]; }
+            }
+        }
         
     }
 }
