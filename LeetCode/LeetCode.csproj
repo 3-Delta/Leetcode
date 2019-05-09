@@ -49,6 +49,16 @@
     <Compile Include="Src\LeetCode\Middle\TwoNumAdd.cs" />
     <Compile Include="Src\LeetCode\Simple\TwoSum.cs" />
     <Compile Include="Src\PointToOffer\100.cs" />
+    <Compile Include="Src\PointToOffer\28.cs" />
+    <Compile Include="Src\PointToOffer\27.cs" />
+    <Compile Include="Src\PointToOffer\26.cs" />
+    <Compile Include="Src\PointToOffer\25.cs" />
+    <Compile Include="Src\PointToOffer\24.cs" />
+    <Compile Include="Src\PointToOffer\23.cs" />
+    <Compile Include="Src\PointToOffer\22.cs" />
+    <Compile Include="Src\PointToOffer\21.cs" />
+    <Compile Include="Src\PointToOffer\20.cs" />
+    <Compile Include="Src\PointToOffer\19.cs" />
     <Compile Include="Src\PointToOffer\17.cs" />
     <Compile Include="Src\PointToOffer\16.cs" />
     <Compile Include="Src\PointToOffer\7.5.cs" />

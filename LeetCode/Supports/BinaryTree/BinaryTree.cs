@@ -374,4 +374,16 @@ public class BinaryTree<T>
             maxDiff = Math.Max(diff, maxDiff);
         }
     }
+    public void Mirror(BinaryTreeNode<T> root)
+    {
+        if (root != null)
+        {
+            BinaryTreeNode<T> t = root.left;
+            root.left = root.right;
+            root.right = t;
+
+            Mirror(root.left);
+            Mirror(root.right);
+        }
+    }
 }
