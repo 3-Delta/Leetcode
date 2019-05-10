@@ -366,13 +366,6 @@ public class BinaryTree<T>
     public void GetMaxDepthDiff(BinaryTreeNode<T> root, out int maxDiff)
     {
         maxDiff = 0;
-        if (root != null)
-        {
-            int leftDepth = GetDepth(root.left);
-            int rightDepth = GetDepth(root.right);
-            int diff = Math.Abs(leftDepth - rightDepth);
-            maxDiff = Math.Max(diff, maxDiff);
-        }
     }
     public void Mirror(BinaryTreeNode<T> root)
     {
@@ -385,5 +378,25 @@ public class BinaryTree<T>
             Mirror(root.left);
             Mirror(root.right);
         }
+    }
+    public bool IsBalance(BinaryTreeNode<T> root)
+    {
+        bool ret = true;
+        if (root != null)
+        {
+            bool leftBalance = IsBalance(root.left);
+            bool rightBalance = IsBalance(root.right);
+            if (leftBalance && rightBalance)
+            {
+                int leftDepth = GetDepth(root.left);
+                int rightDepth = GetDepth(root.right);
+                ret = Math.Abs(leftDepth - rightDepth) <= 1;
+            }
+            else
+            {
+                ret = false;
+            }
+        }
+        return ret;
     }
 }

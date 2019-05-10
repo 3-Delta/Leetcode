@@ -31,6 +31,7 @@ namespace LeetCode
             //_16.Func();
             //_19.Func();
             _28.Func();
+            _39.Func();
 
             // 归并测试
             //_17.Func();
