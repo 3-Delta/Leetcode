@@ -80,6 +80,26 @@
     <Compile Include="Src\PointToOffer\45.cs" />
     <Compile Include="Src\PointToOffer\46.cs" />
     <Compile Include="Src\PointToOffer\47.cs" />
+    <Compile Include="Src\PointToOffer\48.cs" />
+    <Compile Include="Src\PointToOffer\49.cs" />
+    <Compile Include="Src\PointToOffer\50.cs" />
+    <Compile Include="Src\PointToOffer\51.cs" />
+    <Compile Include="Src\PointToOffer\52.cs" />
+    <Compile Include="Src\PointToOffer\53.cs" />
+    <Compile Include="Src\PointToOffer\54.cs" />
+    <Compile Include="Src\PointToOffer\55.cs" />
+    <Compile Include="Src\PointToOffer\56.cs" />
+    <Compile Include="Src\PointToOffer\57.cs" />
+    <Compile Include="Src\PointToOffer\58.cs" />
+    <Compile Include="Src\PointToOffer\59.cs" />
+    <Compile Include="Src\PointToOffer\60.cs" />
+    <Compile Include="Src\PointToOffer\61.cs" />
+    <Compile Include="Src\PointToOffer\62.cs" />
+    <Compile Include="Src\PointToOffer\63.cs" />
+    <Compile Include="Src\PointToOffer\64.cs" />
+    <Compile Include="Src\PointToOffer\65.cs" />
+    <Compile Include="Src\PointToOffer\66.cs" />
+    <Compile Include="Src\PointToOffer\67.cs" />
     <Compile Include="Src\PointToOffer\7.5.cs" />
     <Compile Include="Src\PointToOffer\7.cs" />
     <Compile Include="Src\PointToOffer\11.cs" />
@@ -95,6 +115,9 @@
     <Compile Include="Src\PointToOffer\4.cs" />
     <Compile Include="Src\PointToOffer\3.cs" />
     <Compile Include="Src\PointToOffer\2.cs" />
+    <Compile Include="Supports\Graph\Graph.cs" />
+    <Compile Include="Supports\Heap\Heap.cs" />
+    <Compile Include="Supports\SkipList\SkipList.cs" />
     <Compile Include="Supports\Sort\Sort.cs" />
     <Compile Include="Supports\Find\Find.cs" />
     <Compile Include="Supports\IntArray\IntArray.cs" />
@@ -104,6 +127,8 @@
     <Compile Include="Supports\LinkList\LinkList.cs" />
     <Compile Include="Supports\RBTree\RBTree.cs" />
     <Compile Include="Supports\B -\B -.cs" />
+    <Compile Include="Supports\Trie\Trie.cs" />
+    <Compile Include="Supports\UnionSet\UnionSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

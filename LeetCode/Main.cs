@@ -18,18 +18,22 @@ namespace LeetCode
             //_3.Func();
             //_4.Func();
             //_5.Func();
+            //_6.Func();
+            //_7.Func();
+            //_7_5.Func();
+            _8.Func();
             //_9.Func();
             //_10.Func();
             //_100.Func();
 
-            //_6.Func();
-            //_7_5.Func();
             //_12.Func();
             //_13.Func();
             //_14.Func();
             //_15.Func();
             //_16.Func();
+
             //_19.Func();
+
             _28.Func();
             _39.Func();
 
