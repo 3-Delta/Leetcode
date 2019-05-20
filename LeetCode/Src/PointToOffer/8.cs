@@ -35,9 +35,5 @@ public static class _8
         //    }
         //}
         // 存在很多bug
-
-        
-
-        Console.WriteLine(array[middle]);
     }
 }

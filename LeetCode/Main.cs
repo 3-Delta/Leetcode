@@ -24,6 +24,7 @@ namespace LeetCode
             _8.Func();
             //_9.Func();
             //_10.Func();
+            //_11.Func();
             //_100.Func();
 
             //_12.Func();
@@ -33,10 +34,12 @@ namespace LeetCode
             //_16.Func();
 
             //_19.Func();
+            _31.Func();
+            //_33.Func();
 
-            _28.Func();
-            _39.Func();
-            _101.Func();
+            //_28.Func();
+            //_39.Func();
+            //_101.Func();
 
             // 归并测试
             //_17.Func();

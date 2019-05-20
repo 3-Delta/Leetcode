@@ -24,10 +24,69 @@ public static class _31
             return string.Format("max:{0} start:{1} end:{2}", max, startIndex, endIndex);
         }
     }
+    public static int[] array = new int[] { 1, -2, 3, 10, -4, 7, 2, -5};
 
     public static void Func()
     {
+        Func1();
+        Func2();
+    }
+
+    public static void Func1() // 查找法
+    {
         Tiple3 ret = new Tiple3();
+        int[,] map = new int[array.Length, array.Length];
+
+        for (int i = 0; i < array.Length; ++i)
+        {
+            int sum = 0;
+            for (int j = i; j < array.Length; ++j)
+            {
+                sum += array[j];
+                map[i, j] = sum;
+            }
+        }
+
+        for (int i = 0; i < array.Length; ++i)
+        {
+            for (int j = i; j < array.Length; ++j)
+            {
+                if (map[i, j] > ret.max)
+                {
+                    ret.max = map[i, j];
+                    ret.startIndex = i;
+                    ret.endIndex = j;
+                }
+            }
+        }
+
+        Console.WriteLine(ret.ToString());
+    }
+
+    public static void Func2()
+    {
+        Tiple3 ret = new Tiple3();
+        int sum = 0;
+
+        //ret.startIndex = 0;
+        //ret.max = -int.MaxValue; 
+        //for (int i = 0; i < array.Length; ++i)
+        //{
+        //    if (sum <= 0)
+        //    {
+        //        sum = array[i];
+        //    }
+        //    else
+        //    {
+        //        sum += array[i];
+        //        ret.endIndex = i;
+        //    }
+
+        //    if (sum > ret.max)
+        //    {
+        //        ret.max = sum;
+        //    }
+        //}
 
         Console.WriteLine(ret.ToString());
     }
