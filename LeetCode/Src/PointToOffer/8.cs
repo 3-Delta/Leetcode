@@ -36,15 +36,8 @@ public static class _8
         //}
         // 存在很多bug
 
-        int left = 0;
-        int right = array.Length - 1;
-        int middle = left;
+        
 
-        while (array[left] >= array[right])
-        {
-
-        }
-
-        Console.WriteLine(array[left]);
+        Console.WriteLine(array[middle]);
     }
 }
