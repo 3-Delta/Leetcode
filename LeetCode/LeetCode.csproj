@@ -50,6 +50,7 @@
     <Compile Include="Src\LeetCode\Simple\TwoSum.cs" />
     <Compile Include="Src\PointToOffer\101.cs" />
     <Compile Include="Src\PointToOffer\100.cs" />
+    <Compile Include="Src\PointToOffer\18.cs" />
     <Compile Include="Src\PointToOffer\29.cs" />
     <Compile Include="Src\PointToOffer\28.cs" />
     <Compile Include="Src\PointToOffer\27.cs" />

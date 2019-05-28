@@ -399,4 +399,73 @@ public class BinaryTree<T>
         }
         return ret;
     }
+    public bool TreeHasTree(BinaryTreeNode<T> mainRoot, BinaryTreeNode<T> subRoot)
+    {
+        if (subRoot == null)
+        {
+            return true;
+        }
+        if (mainRoot == null)
+        {
+            return false;
+        }
+
+        if (!mainRoot.value.Equals(subRoot.value))
+        {
+            return false;
+        }
+        else
+        {
+            return TreeHasTree(mainRoot.left, subRoot.left) && TreeHasTree(mainRoot.right, subRoot.right);
+        }
+    }
+    public bool IsSubTree(BinaryTreeNode<T> mainRoot, BinaryTreeNode<T> subRoot)
+    {
+        bool ret = false;
+        if (mainRoot != null && mainRoot != null)
+        {
+            ret = mainRoot.value.Equals(subRoot.value);
+            if (ret)
+            {
+                ret = TreeHasTree(mainRoot.left, subRoot.left) && TreeHasTree(mainRoot.right, subRoot.right);
+            }
+            else
+            {
+                ret = IsSubTree(mainRoot.left, subRoot);
+                if (!ret)
+                {
+                    ret = IsSubTree(mainRoot.right, subRoot);
+                }
+            }
+        }
+        return ret;
+    }
+    public bool IsPreOrder(int[] array, int leftIndex, int rightIndex)
+    {
+        bool ret = false;
+        return ret;
+    }
+    public bool IsMiddleOrder(int[] array, int leftIndex, int rightIndex)
+    {
+        bool ret = false;
+        return ret;
+    }
+    public bool IsPostOrder(int[] array, int leftIndex, int rightIndex)
+    {
+        //bool ret = false;
+        //if (array != null)
+        //{
+        //    if (array.Length <= 0) { ret = true; }
+        //    else if (0 <= leftIndex && leftIndex <= rightIndex && rightIndex < array.Length)
+        //    {
+        //        int last = array[rightIndex];
+        //        int index = Array.IndexOf(array, last);
+        //        for (int i = 0; i <= index; ++i)
+        //        {
+
+        //        }
+        //    }
+        //}
+        //return ret;
+    }
 }

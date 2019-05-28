@@ -8,6 +8,6 @@ public static class _23
 {
     public static void Func()
     {
-     
+        
     }
 }
