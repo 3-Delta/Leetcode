@@ -452,7 +452,7 @@ public class BinaryTree<T>
     }
     public bool IsPostOrder(int[] array, int leftIndex, int rightIndex)
     {
-        //bool ret = false;
+        bool ret = false;
         //if (array != null)
         //{
         //    if (array.Length <= 0) { ret = true; }
@@ -466,6 +466,6 @@ public class BinaryTree<T>
         //        }
         //    }
         //}
-        //return ret;
+        return ret;
     }
 }

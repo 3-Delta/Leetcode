@@ -59,6 +59,7 @@ namespace LeetCode
             //Console.WriteLine(IntArray.IsSorted(new int[] { 5, 4, 3, 2, 1}, false));
             // Sort.Func();
 
+            // PriorityTest.Func();
 
             Console.ReadKey();
         }
