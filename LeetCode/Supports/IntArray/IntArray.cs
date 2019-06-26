@@ -95,3 +95,62 @@ public static class IntArray
         
     }
 }
+
+// 九宫格
+public class NineGrid
+{
+    public int countPerLine;
+    // 获取九宫格的周边8个位置的index,下标从0开始
+    public void GetNeighbours(int currentIndex, ref List<int> ret, int arrayCount)
+    {
+        // 左下角开始，右上原则
+        ret = ret ?? new List<int>();
+        int index0 = currentIndex - countPerLine - 1;
+        int index1 = currentIndex - countPerLine;
+        int index2 = currentIndex - countPerLine + 1;
+        int index3 = currentIndex - 1;
+        int index5 = currentIndex + 1;
+        int index6 = currentIndex + countPerLine - 1;
+        int index7 = currentIndex + countPerLine;
+        int index8 = currentIndex + countPerLine + 1;
+
+        int line = currentIndex % countPerLine;
+        if (IsIndexValid(index0, arrayCount) && index0 % countPerLine == line - 1)
+        {
+            ret.Add(index0);
+        }
+        if (IsIndexValid(index1, arrayCount) && index1 % countPerLine == line - 1)
+        {
+            ret.Add(index1);
+        }
+        if (IsIndexValid(index2, arrayCount) && index2 % countPerLine == line - 1)
+        {
+            ret.Add(index2);
+        }
+        if (IsIndexValid(index3, arrayCount) && index3 % countPerLine == line)
+        {
+            ret.Add(index3);
+        }
+        if (IsIndexValid(index5, arrayCount) && index5 % countPerLine == line)
+        {
+            ret.Add(index5);
+        }
+        if (IsIndexValid(index6, arrayCount) && index6 % countPerLine == line + 1)
+        {
+            ret.Add(index6);
+        }
+        if (IsIndexValid(index7, arrayCount) && index7 % countPerLine == line + 1)
+        {
+            ret.Add(index7);
+        }
+        if (IsIndexValid(index8, arrayCount) && index8 % countPerLine == line + 1)
+        {
+            ret.Add(index8);
+        }
+    }
+
+    public bool IsIndexValid(int index, int arrayCount)
+    {
+        return (0 <= index && index < arrayCount);
+    }
+}
