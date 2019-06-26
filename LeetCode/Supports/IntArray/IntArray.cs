@@ -114,36 +114,36 @@ public class NineGrid
         int index7 = currentIndex + countPerLine;
         int index8 = currentIndex + countPerLine + 1;
 
-        int line = currentIndex % countPerLine;
-        if (IsIndexValid(index0, arrayCount) && index0 % countPerLine == line - 1)
+        int line = currentIndex / countPerLine;
+        if (IsIndexValid(index0, arrayCount) && index0 / countPerLine == line - 1)
         {
             ret.Add(index0);
         }
-        if (IsIndexValid(index1, arrayCount) && index1 % countPerLine == line - 1)
+        if (IsIndexValid(index1, arrayCount) && index1 / countPerLine == line - 1)
         {
             ret.Add(index1);
         }
-        if (IsIndexValid(index2, arrayCount) && index2 % countPerLine == line - 1)
+        if (IsIndexValid(index2, arrayCount) && index2 / countPerLine == line - 1)
         {
             ret.Add(index2);
         }
-        if (IsIndexValid(index3, arrayCount) && index3 % countPerLine == line)
+        if (IsIndexValid(index3, arrayCount) && index3 / countPerLine == line)
         {
             ret.Add(index3);
         }
-        if (IsIndexValid(index5, arrayCount) && index5 % countPerLine == line)
+        if (IsIndexValid(index5, arrayCount) && index5 / countPerLine == line)
         {
             ret.Add(index5);
         }
-        if (IsIndexValid(index6, arrayCount) && index6 % countPerLine == line + 1)
+        if (IsIndexValid(index6, arrayCount) && index6 / countPerLine == line + 1)
         {
             ret.Add(index6);
         }
-        if (IsIndexValid(index7, arrayCount) && index7 % countPerLine == line + 1)
+        if (IsIndexValid(index7, arrayCount) && index7 / countPerLine == line + 1)
         {
             ret.Add(index7);
         }
-        if (IsIndexValid(index8, arrayCount) && index8 % countPerLine == line + 1)
+        if (IsIndexValid(index8, arrayCount) && index8 / countPerLine == line + 1)
         {
             ret.Add(index8);
         }
