@@ -125,6 +125,7 @@
     <Compile Include="Src\PointToOffer\2.cs" />
     <Compile Include="Supports\Graph\Graph.cs" />
     <Compile Include="Supports\Heap\Heap.cs" />
+    <Compile Include="Supports\IndexedList.cs" />
     <Compile Include="Supports\PriorityQueue\PriorityQueue.cs" />
     <Compile Include="Supports\SkipList\SkipList.cs" />
     <Compile Include="Supports\Sort\Sort.cs" />
