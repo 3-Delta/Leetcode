@@ -82,4 +82,15 @@ public static class _100
         Console.WriteLine("Over");
         return ret;
     }
+    // 二进制中只有一个1，并且1后面跟了n个0；
+    public static bool isPowerOf2(int num)
+    {
+        return (num & (num - 1)) == 0;
+    }
+    public static bool isPowerOf2Digui(int num)
+    {
+        bool ret = false;
+        int shang, yushu;
+        return ret;
+    }
 }
