@@ -90,7 +90,20 @@ public static class _100
     public static bool isPowerOf2Digui(int num)
     {
         bool ret = false;
-        int shang, yushu;
+        if (num < 1) { ret = false; }
+        else if (num == 1) { ret = true; }
+        else
+        {
+            int yushu = num % 2;
+            if (yushu == 0)
+            {
+                ret = isPowerOf2Digui(num >> 1);
+            }
+            else
+            {
+                ret = false;
+            }
+        }
         return ret;
     }
 }
