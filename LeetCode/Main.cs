@@ -41,6 +41,7 @@ namespace LeetCode
             _24.Func();
             _31.Func();
             //_33.Func();
+            _34.Func();
 
             //_28.Func();
             //_39.Func();

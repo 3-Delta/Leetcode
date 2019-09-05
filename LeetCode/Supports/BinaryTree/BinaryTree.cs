@@ -255,6 +255,7 @@ public class BinaryTree<T>
         while (queue.Count > 0)
         {
             BinaryTreeNode<T> node = queue.Dequeue();
+            // 必须先先判断左边，再判断右边
             if (node.left != null)
             {
                 queue.Enqueue(node.left);
@@ -467,5 +468,32 @@ public class BinaryTree<T>
         //    }
         //}
         return ret;
+    }
+
+    public void GetSumPath(BinaryTreeNode<int> root, int currentSum, int sum, List<BinaryTreeNode<int>> path)
+    {
+        if (root != null)
+        {
+            currentSum += root.value;
+            path.Add(root);
+            if (currentSum == sum && IsLeaf(root))
+            {
+                foreach (var p in path)
+                {
+                    Console.Write("\t" + p.value);
+                }
+                Console.WriteLine();
+            }
+            else
+            {
+                GetSumPath(root.left, currentSum, sum, path);
+                GetSumPath(root.right, currentSum, sum, path);
+            }
+            path.RemoveAt(path.Count - 1);
+        }
+    }
+    public bool IsLeaf(BinaryTreeNode<int> node)
+    {
+        return node != null && node.left == null && node.right == null;
     }
 }

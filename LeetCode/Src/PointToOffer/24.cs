@@ -8,16 +8,11 @@ public static class _24
 {
     public static void Func()
     {
-        //BinaryTree<int> preTree = new BinaryTree<int>();
-        //int[] array = new int[] { 5, 7, 6, 9, 11, 10, 8 };
-        //Console.WriteLine(preTree.IsPreOrder(array));
-
-        //BinaryTree<int> middleTree = new BinaryTree<int>();
-        //array = new int[] { 5, 7, 6, 9, 11, 10, 8 };
-        //Console.WriteLine(middleTree.IsMiddleOrder(array));
-
-        //BinaryTree<int> postTree = new BinaryTree<int>();
-        //array = new int[] { 5, 7, 6, 9, 11, 10, 8 };
-        //Console.WriteLine(postTree.IsPostOrder(array));
+        BinaryTree<int> preTree = new BinaryTree<int>();
+        List<int> array = new List<int> { 10, 5, 12, 4, 7 };
+        preTree.Create(array);
+        preTree.PrintLayer();
+        preTree.GetSumPath(preTree.root, 0, 22, new List<BinaryTreeNode<int>>() { });
+        preTree.PrintLayer();
     }
 }

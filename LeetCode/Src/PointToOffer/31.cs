@@ -65,28 +65,25 @@ public static class _31
 
     public static void Func2()
     {
+        int currentSum = 0;
         Tiple3 ret = new Tiple3();
-        int sum = 0;
-
-        //ret.startIndex = 0;
-        //ret.max = -int.MaxValue; 
-        //for (int i = 0; i < array.Length; ++i)
-        //{
-        //    if (sum <= 0)
-        //    {
-        //        sum = array[i];
-        //    }
-        //    else
-        //    {
-        //        sum += array[i];
-        //        ret.endIndex = i;
-        //    }
-
-        //    if (sum > ret.max)
-        //    {
-        //        ret.max = sum;
-        //    }
-        //}
+        for (int i = 0; i < array.Length; ++i)
+        {
+            if (currentSum <= 0)
+            {
+                currentSum = array[i];
+                ret.startIndex = i;
+            }
+            else
+            {
+                currentSum += array[i];
+            }
+            if (currentSum > ret.max)
+            {
+                ret.max = currentSum;
+                ret.endIndex = i;
+            }
+        }
 
         Console.WriteLine(ret.ToString());
     }
