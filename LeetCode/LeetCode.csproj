@@ -51,6 +51,10 @@
     <Compile Include="Src\LeetCode\Easy\1_TwoSum.cs" />
     <Compile Include="Src\LeetCode\Easy\303.cs" />
     <Compile Include="Src\LeetCode\Easy\598.cs" />
+    <Compile Include="Src\LeetCode\Easy\14.cs" />
+    <Compile Include="Src\LeetCode\Easy\9.cs" />
+    <Compile Include="Src\LeetCode\Easy\8.cs" />
+    <Compile Include="Src\LeetCode\Easy\7.cs" />
     <Compile Include="Src\LeetCode\Easy\67.cs" />
     <Compile Include="Src\LeetCode\Hard\CenterNum.cs" />
     <Compile Include="Src\LeetCode\Middle\TwoNumAdd.cs" />
