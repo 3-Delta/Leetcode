@@ -333,6 +333,101 @@ public class SingleList<T>
         SingleList<T> ret = null;
         return ret;
     }
+    public static SingleListNode<int> MergeOldDg(SingleListNode<int> left, SingleListNode<int> right)
+    {
+        if (left == null) // 注意这里条件是： == null,而不是!= null
+        {
+            return right;
+        }
+        else if (right == null)
+        {
+            return left;
+        }
+        else
+        {
+            SingleListNode<int> subHead;
+            if (left.value < right.value)
+            {
+                subHead = MergeOldDg(left.next, right);
+                left.next = subHead;
+                return left;
+            }
+            else
+            {
+                subHead = MergeOldDg(left, right.next);
+                right.next = subHead;
+                return right;
+            }
+        }
+    }
+    public static SingleListNode<int> MergeOld(SingleListNode<int> l1, SingleListNode<int> l2)
+    {
+        SingleListNode<int> retHead = null;
+        SingleListNode<int> prew = null;
+        bool first = true;
+        while (l1 != null && l2 != null)
+        {
+            bool flag = l1.value < l2.value;
+            if (flag)
+            {
+                if (first)
+                {
+                    first = false;
+                    prew = retHead = l1;
+                }
+                else
+                {
+                    prew.next = l1;
+                    prew = prew.next;
+                }
+                l1 = l1.next;
+            }
+            else
+            {
+                if (first)
+                {
+                    first = false;
+                    prew = retHead = l2;
+                }
+                else
+                {
+                    prew.next = l2;
+                    prew = prew.next;
+                }
+                l2 = l2.next;
+            }
+        }
+        while (l2 != null)
+        {
+            if (first)
+            {
+                first = false;
+                retHead = prew = l2;
+            }
+            else
+            {
+                // 先设置next
+                prew.next = l2;
+                prew = prew.next;
+            }
+            l2 = l2.next;
+        }
+        while (l1 != null)
+        {
+            if (first)
+            {
+                first = false;
+                retHead = prew = l1;
+            }
+            else
+            {
+                prew.next = l1;
+                prew = prew.next;
+            }
+            l1 = l1.next;
+        }
+        return retHead;
+    }
     public static SingleList<int> Merge(SingleList<int> left, SingleList<int> right)
     {
         SingleList<int> ret = null;
@@ -415,5 +510,55 @@ public class SingleList<T>
             ret = right;
         }
         return ret;
+    }
+    public void DeleteBackK(int k)
+    {
+        SingleListNode<T> node = FindBackK(k);
+        if (node != null)
+        {
+            if (node == head)
+            {
+                head = head.next;
+            }
+            else if (node.next != null)
+            {
+                SingleListNode<T> next = node.next;
+                node.value = next.value;
+                node.next = next.next;
+            }
+            else
+            {
+                SingleListNode<T> pre = head;
+                while (pre.next != node)
+                {
+                    pre = pre.next;
+                }
+                pre.next = null;
+            }
+        }
+    }
+    public SingleListNode<T> FindBackK(int k)
+    {
+        SingleListNode<T> right = head;
+        SingleListNode<T> ret = null;
+        for (int i = 0; i < k; ++i)
+        {
+            if (right == null)
+            {
+                return null;
+            }
+            else
+            {
+                right = right.next;
+            }
+        }
+
+        SingleListNode<T> left = head;
+        while (right != null)
+        {
+            right = right.next;
+            left = left.next;
+        }
+        return left;
     }
 }

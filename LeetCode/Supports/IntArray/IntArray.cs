@@ -14,7 +14,49 @@ public static class IntArray
         }
         Console.WriteLine("================");
     }
-
+    public static int RemoveDuplicates(int[] nums)
+    {
+        // 有序数组的Unique,相同的元素在一堆
+        // 关键点：
+        // 1: 逆序
+        // 2: 后面向前复制
+        // 3: 时刻修改guardIndex
+        int length = nums.Length;
+        int guardIndex = length - 1;
+        for (int i = nums.Length - 2; i >= 0; --i)
+        {
+            if (nums[i] == nums[guardIndex])
+            {
+                for (int j = i + 1; j < length; ++j)
+                {
+                    nums[j - 1] = nums[j];
+                }
+                --length;
+            }
+            guardIndex = i;
+        }
+        return length;
+    }
+    public static int RemoveElement(int[] nums, int val)
+    {
+        int i = 0;
+        int j = nums.Length - 1;
+        while (i <= j)
+        {
+            if (nums[i] == val)
+            {
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+                --j;
+            }
+            else
+            {
+                ++i;
+            }
+        }
+        return j + 1;
+    }
     // 是否升序
     public static bool IsSorted(int[] array, bool increase = true, int index = 0)
     {

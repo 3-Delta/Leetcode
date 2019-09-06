@@ -13,7 +13,8 @@ namespace LeetCode
             // leetcode
             //TwoSum.Func();
             //TwoNumAdd.Func();
-            LC_14.Func();
+            //LC_14.Func();
+            LC_67.Func();
 
             // point2offer
             //_3.Func();

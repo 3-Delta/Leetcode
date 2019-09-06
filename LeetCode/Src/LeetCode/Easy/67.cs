@@ -9,27 +9,55 @@ public static class LC_67
 {
     public static void Func()
     {
-        string a = "111";
-        string b = "10101";
+        string a = "11";
+        string b = "1";
 
-        GetSum(a, b);
+        Console.WriteLine(AddBinary(a, b));
     }
-    private static void GetSum(string left, string right)
+    private static string AddBinary(string a, string b)
     {
-        //left = left.Trim();
-        //right = right.Trim();
+        List<int> ls = new List<int>();
+        int i = a.Length - 1;
+        int j = b.Length - 1;
+        int jin = 0;
+        int t;
+        while (i >= 0 && j >= 0)
+        {
+            t = AtoI(a[i]) + AtoI(b[j]) + jin;
+            jin = t / 2;
+            ls.Add(t % 2);
+            --i;
+            --j;
+        }
+        while (i >= 0)
+        {
+            t = AtoI(a[i]) + jin;
+            jin = t / 2;
+            ls.Add(t % 2);
+            --i;
+        }
+        while (j >= 0)
+        {
+            t = AtoI(b[j]) + jin;
+            jin = t / 2;
+            ls.Add(t % 2);
+            --j;
+        }
+        if (jin != 0)
+        {
+            ls.Add(jin);
+        }
+        ls.Reverse();
+        string s = "";
+        foreach (int ii in ls)
+        {
+            s += ii;
+        }
+        return s;
+    }
 
-        //int len = Mathf.Max(left.Length, right.Length) + 1;
-        //string sum = new string(""[0], len);
-
-        //int jinwei = 0;
-        //int i = left.Length - 1;
-        //int j = right.Length - 1;
-        //int k = len - 1;
-        //while (i >= 0 && j >= 0)
-        //{
-        //    //int tSum = (int)left[i] + (int)right[j];
-        //    //jinwei = tSum / 2
-        //}
+    private static int AtoI(char c)
+    {
+        return c - '0';
     }
 }
