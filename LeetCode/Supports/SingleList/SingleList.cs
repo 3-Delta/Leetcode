@@ -540,7 +540,6 @@ public class SingleList<T>
     public SingleListNode<T> FindBackK(int k)
     {
         SingleListNode<T> right = head;
-        SingleListNode<T> ret = null;
         for (int i = 0; i < k; ++i)
         {
             if (right == null)
@@ -560,5 +559,30 @@ public class SingleList<T>
             left = left.next;
         }
         return left;
+    }
+
+    public SingleListNode<T> DeleteDuplicates(SingleListNode<T> head)
+    {
+        if (head == null) { return null; }
+
+        SingleListNode<T> left = head;
+        SingleListNode<T> right = head.next;
+
+        while (right != null)
+        {
+            if (right.value.Equals(left.value))
+            {
+                SingleListNode<T> next = right.next;
+                left.next = next;
+                right = next;
+            }
+            else
+            {
+                left = right;
+                right = right.next;
+            }
+        }
+
+        return head;
     }
 }
