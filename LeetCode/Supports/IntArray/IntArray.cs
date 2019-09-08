@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public static class IntArray
 {
-    public static void Print(int[] array)
+    public static void Print(IList<int> array)
     {
         foreach (var i in array)
         {

@@ -12,7 +12,7 @@ public static class _39
         tree.Create(new List<int>() { 1, 2, 3, 4, 5, 6, 7 }, 0);
         tree.PrintLayer();
 
-        Console.WriteLine(tree.GetDepth(tree.root));
+        Console.WriteLine(tree.MaxDepth(tree.root));
         int diff;
         tree.GetMaxDepthDiff(tree.root, out diff);
         Console.WriteLine(diff);

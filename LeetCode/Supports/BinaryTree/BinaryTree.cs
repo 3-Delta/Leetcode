@@ -296,7 +296,6 @@ public class BinaryTree<T>
         while (queue.Count > 0)
         {
             BinaryTreeNode<T> node = queue.Dequeue();
-
             // 特殊处理第一行的输出，必须放到vector.Add的前面，因为如果放到后面。第一次输出的就是前面两行的数据
             if (layerNumber == 0)
             {
@@ -352,16 +351,51 @@ public class BinaryTree<T>
 
         Console.WriteLine("-----------------");
     }
-    public int GetDepth(BinaryTreeNode<T> root)
+    public int MaxDepth(BinaryTreeNode<T> root)
     {
         int ret = 0;
         if (root != null)
         {
-            int leftDepth = GetDepth(root.left);
-            int rightDepth = GetDepth(root.right);
+            int leftDepth = MaxDepth(root.left);
+            int rightDepth = MaxDepth(root.right);
             ret = Math.Max(leftDepth, rightDepth) + 1;
         }
         return ret;
+    }
+    public int MinDepth(BinaryTreeNode<T> root)
+    {
+        if (root == null)
+        {
+            return 0;
+        }
+        else
+        {
+            // 叶子
+            if ((root.left == null) && (root.right == null))
+            {
+                return 1;
+            }
+            else
+            {
+                // 错误做法，会把depth为0的考虑进去 也就是为null的分支
+                /*
+                int left = MinDepth(root.left);
+                int right = MinDepth(root.right);
+                return Math.Min(left, right) + 1;
+                */
+
+                int min = int.MaxValue;
+                if (root.left != null)
+                {
+                    min = Math.Min(MinDepth(root.left), min);
+                }
+                if (root.right != null)
+                {
+                    min = Math.Min(MinDepth(root.right), min);
+                }
+                return min + 1;
+            }
+        }
     }
     // 左右子树最大高度差, out表明 整个递归连只是用一个变量
     public void GetMaxDepthDiff(BinaryTreeNode<T> root, out int maxDiff)
@@ -389,8 +423,8 @@ public class BinaryTree<T>
             bool rightBalance = IsBalance(root.right);
             if (leftBalance && rightBalance)
             {
-                int leftDepth = GetDepth(root.left);
-                int rightDepth = GetDepth(root.right);
+                int leftDepth = MaxDepth(root.left);
+                int rightDepth = MaxDepth(root.right);
                 ret = Math.Abs(leftDepth - rightDepth) <= 1;
             }
             else
@@ -495,5 +529,25 @@ public class BinaryTree<T>
     public bool IsLeaf(BinaryTreeNode<int> node)
     {
         return node != null && node.left == null && node.right == null;
+    }
+    public IList<int> RightSideView(BinaryTreeNode<int> root)
+    {
+        IList<int> ls = new List<int>();
+        int depth = 0;
+        RightSideView(root, ls, 0);
+        return ls;
+    }
+    public void RightSideView(BinaryTreeNode<int> root, IList<int> ls, int depth)
+    {
+        if (root != null)
+        {
+            if (depth == ls.Count)
+            {
+                ls.Add(root.value);
+            }
+            // 先右后左
+            RightSideView(root.right, ls, depth + 1);
+            RightSideView(root.left, ls, depth + 1);
+        }
     }
 }
