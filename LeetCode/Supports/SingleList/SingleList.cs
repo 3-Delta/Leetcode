@@ -585,4 +585,46 @@ public class SingleList<T>
 
         return head;
     }
+    public SingleListNode<T> RotateRight(SingleListNode<T> head, int k)
+    {
+        // 注意k == count的時候，和形成环形的先后顺序。
+        if (k <= 0) { return head; }
+
+        SingleListNode<T> prew = null;
+        SingleListNode<T> current = head;
+        int count = 0;
+        while (current != null)
+        {
+            ++count;
+            prew = current;
+            current = current.next;
+        }
+
+        if (count == 0) { return head; }
+        k = k % count;
+        if (k == 0)
+        {
+            return head;
+        }
+        if (prew != null)
+            prew.next = head;
+
+        {
+            current = head;
+            prew = null;
+            int diff = count - k;
+            int i = 0;
+            while (current != null && i < diff)
+            {
+                prew = current;
+                current = current.next;
+                ++i;
+            }
+
+            if (prew != null)
+                prew.next = null;
+            head = current;
+            return head;
+        }
+    }
 }
