@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\LeetCode\Easy\141.cs" />
     <Compile Include="Src\LeetCode\Easy\111.cs" />
     <Compile Include="Src\LeetCode\Easy\107.cs" />
     <Compile Include="Src\LeetCode\Easy\110.cs" />
@@ -55,7 +56,11 @@
     <Compile Include="Src\LeetCode\Easy\101.cs" />
     <Compile Include="Src\LeetCode\Easy\13.cs" />
     <Compile Include="Src\LeetCode\Easy\1_TwoSum.cs" />
+<<<<<<< HEAD
     <Compile Include="Src\LeetCode\Easy\25.cs" />
+=======
+    <Compile Include="Src\LeetCode\Easy\21.cs" />
+>>>>>>> 8f4b9fdf018752172a3a8574a03bb2305a3fd030
     <Compile Include="Src\LeetCode\Easy\29.cs" />
     <Compile Include="Src\LeetCode\Easy\35.cs" />
     <Compile Include="Src\LeetCode\Easy\27.cs" />
@@ -67,6 +72,7 @@
     <Compile Include="Src\LeetCode\Easy\70.cs" />
     <Compile Include="Src\LeetCode\Easy\83.cs" />
     <Compile Include="Src\LeetCode\Easy\100.cs" />
+<<<<<<< HEAD
     <Compile Include="Src\LeetCode\Easy\169.cs" />
     <Compile Include="Src\LeetCode\Easy\190.cs" />
     <Compile Include="Src\LeetCode\Middle\90.cs" />
@@ -74,6 +80,11 @@
     <Compile Include="Src\LeetCode\Middle\92.cs" />
     <Compile Include="Src\LeetCode\Middle\86.cs" />
     <Compile Include="Src\LeetCode\Middle\82.cs" />
+=======
+    <Compile Include="Src\LeetCode\Middle\23.cs" />
+    <Compile Include="Src\LeetCode\Middle\61.cs" />
+    <Compile Include="Src\LeetCode\Middle\46.cs" />
+>>>>>>> 8f4b9fdf018752172a3a8574a03bb2305a3fd030
     <Compile Include="Src\LeetCode\Middle\3.cs" />
     <Compile Include="Src\LeetCode\Middle\199.cs" />
     <Compile Include="Src\LeetCode\Middle\94.cs" />

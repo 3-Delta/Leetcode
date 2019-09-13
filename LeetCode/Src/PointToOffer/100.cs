@@ -105,5 +105,30 @@ public static class _100
             }
         }
         return ret;
+
+        /*
+        bool ret = false;
+        if (n < 1) { ret = false; }
+        else if (n == 1) { ret = true; }
+        else
+        {
+            int yushu = n % 3;
+            n /= 3;
+            while (yushu == 0)
+            {
+                if (n == 1)
+                {
+                    ret = true;
+                    break;
+                }
+                else
+                {
+                    yushu = n % 3;
+                    n /= 3;
+                }
+            }
+        }
+        return ret;
+        */
     }
 }
