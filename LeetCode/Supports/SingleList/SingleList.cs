@@ -585,4 +585,26 @@ public class SingleList<T>
 
         return head;
     }
+    public void ReverseKGroup(SingleListNode<int> prew, SingleListNode<int> left, SingleListNode<int> right)
+    {
+        // 前闭后开逆置
+        // 使用头插法逆置
+        SingleListNode<int> leftPrew = left;
+        while (left != right)
+        {
+            SingleListNode<int> prewNext = prew.next;
+            SingleListNode<int> leftNext = left.next;
+            if (prewNext == left)
+            {
+                left = leftNext;
+            }
+            else
+            {
+                prew.next = left;
+                left.next = prewNext;
+                leftPrew.next = leftNext;
+                left = leftNext;
+            }
+        }
+    }
 }

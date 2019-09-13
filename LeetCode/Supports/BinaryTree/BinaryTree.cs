@@ -533,7 +533,6 @@ public class BinaryTree<T>
     public IList<int> RightSideView(BinaryTreeNode<int> root)
     {
         IList<int> ls = new List<int>();
-        int depth = 0;
         RightSideView(root, ls, 0);
         return ls;
     }

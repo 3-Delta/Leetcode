@@ -16,7 +16,14 @@ namespace LeetCode
             //LC_14.Func();
             //LC_13.Func();
             //LC_67.Func();
-            LC_94.Func();
+            //LC_94.Func();
+            //LC_82.Func();
+            LC_25.Func();
+            //LC_86.Func();
+            //LC_92.Func();
+            //LC_78.Func();
+            //LC_90.Func();
+            LC_169.Func();
 
             // point2offer
             //_3.Func();

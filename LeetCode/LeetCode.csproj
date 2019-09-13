@@ -55,6 +55,7 @@
     <Compile Include="Src\LeetCode\Easy\101.cs" />
     <Compile Include="Src\LeetCode\Easy\13.cs" />
     <Compile Include="Src\LeetCode\Easy\1_TwoSum.cs" />
+    <Compile Include="Src\LeetCode\Easy\25.cs" />
     <Compile Include="Src\LeetCode\Easy\29.cs" />
     <Compile Include="Src\LeetCode\Easy\35.cs" />
     <Compile Include="Src\LeetCode\Easy\27.cs" />
@@ -66,6 +67,13 @@
     <Compile Include="Src\LeetCode\Easy\70.cs" />
     <Compile Include="Src\LeetCode\Easy\83.cs" />
     <Compile Include="Src\LeetCode\Easy\100.cs" />
+    <Compile Include="Src\LeetCode\Easy\169.cs" />
+    <Compile Include="Src\LeetCode\Easy\190.cs" />
+    <Compile Include="Src\LeetCode\Middle\90.cs" />
+    <Compile Include="Src\LeetCode\Middle\78.cs" />
+    <Compile Include="Src\LeetCode\Middle\92.cs" />
+    <Compile Include="Src\LeetCode\Middle\86.cs" />
+    <Compile Include="Src\LeetCode\Middle\82.cs" />
     <Compile Include="Src\LeetCode\Middle\3.cs" />
     <Compile Include="Src\LeetCode\Middle\199.cs" />
     <Compile Include="Src\LeetCode\Middle\94.cs" />
