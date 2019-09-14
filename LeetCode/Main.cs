@@ -17,19 +17,17 @@ namespace LeetCode
             //LC_13.Func();
             //LC_67.Func();
             //LC_94.Func();
-<<<<<<< HEAD
             //LC_82.Func();
-            LC_25.Func();
+            //LC_25.Func();
             //LC_86.Func();
             //LC_92.Func();
             //LC_78.Func();
             //LC_90.Func();
-            LC_169.Func();
-=======
+            //LC_169.Func();
             //LC_141.Func();
             //LC_46.Func();
-            LC_61.Func();
->>>>>>> 8f4b9fdf018752172a3a8574a03bb2305a3fd030
+            //LC_61.Func();
+            LC_448.Func();
 
             // point2offer
             //_3.Func();

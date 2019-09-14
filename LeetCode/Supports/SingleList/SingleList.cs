@@ -585,7 +585,7 @@ public class SingleList<T>
 
         return head;
     }
-<<<<<<< HEAD
+
     public void ReverseKGroup(SingleListNode<int> prew, SingleListNode<int> left, SingleListNode<int> right)
     {
         // 前闭后开逆置
@@ -606,7 +606,8 @@ public class SingleList<T>
                 leftPrew.next = leftNext;
                 left = leftNext;
             }
-=======
+        }
+    }
     public SingleListNode<T> RotateRight(SingleListNode<T> head, int k)
     {
         // 注意k == count的時候，和形成环形的先后顺序。
@@ -647,7 +648,6 @@ public class SingleList<T>
                 prew.next = null;
             head = current;
             return head;
->>>>>>> 8f4b9fdf018752172a3a8574a03bb2305a3fd030
         }
     }
 }

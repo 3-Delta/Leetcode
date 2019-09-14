@@ -297,7 +297,7 @@ public class BinaryTree<T>
         {
             BinaryTreeNode<T> node = queue.Dequeue();
             // 特殊处理第一行的输出，必须放到vector.Add的前面，因为如果放到后面。第一次输出的就是前面两行的数据
-            if (layerNumber == 0)
+            if (layerNumber % 2 == 0)
             {
                 Console.WriteLine(vector[0]);
                 vector.Clear();
