@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Trie树用来判断前缀
 public class Trie
 {
     private bool isTrie;
