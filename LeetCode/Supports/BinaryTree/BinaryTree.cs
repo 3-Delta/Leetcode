@@ -351,6 +351,10 @@ public class BinaryTree<T>
 
         Console.WriteLine("-----------------");
     }
+    public BinaryTreeNode<T> LowestCommonAncestor(BinaryTreeNode<T> left, BinaryTreeNode<T> right)
+    {
+        return null;
+    }
     public int MaxDepth(BinaryTreeNode<T> root)
     {
         int ret = 0;

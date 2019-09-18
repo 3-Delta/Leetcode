@@ -27,7 +27,8 @@ namespace LeetCode
             //LC_141.Func();
             //LC_46.Func();
             //LC_61.Func();
-            LC_448.Func();
+            //LC_448.Func();
+            LC_404.Func();
 
             // point2offer
             //_3.Func();

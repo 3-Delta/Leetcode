@@ -190,6 +190,34 @@ public class SingleList<T>
             Console.WriteLine("Over");
         }
     }
+    public void DeleteValue(T value)
+    {
+        SingleListNode<T> prew = null;
+        SingleListNode<T> newHead = null;
+        SingleListNode<T> current = head;
+        while (current != null)
+        {
+            SingleListNode<T> next = current.next;
+            if (current.value.Equals(value))
+            {
+                if (prew == null)
+                {
+                    newHead = next;
+                }
+                else
+                {
+                    prew.next = next;
+                }
+            }
+            else
+            {
+                prew = current;
+            }
+            current = next;
+        }
+
+        head = newHead;
+    }
     public void Delete(T value)
     {
         Delete(FindXunhuan(value));
