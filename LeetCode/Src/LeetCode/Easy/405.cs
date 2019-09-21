@@ -22,5 +22,6 @@ public static class LC_405
         //    num = num / 16;
         //}
         //return ret.Reverse();
+        return null;
     }
 }

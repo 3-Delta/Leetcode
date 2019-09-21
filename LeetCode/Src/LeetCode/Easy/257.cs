@@ -19,10 +19,7 @@ public static class LC_257
     }
     public static void BinaryTreePaths(string path, List<string> paths, TreeNode root)
     {
-        if (root == null)
-        {
-            return;
-        }
+        if (root == null) { return; }
         else
         {
             path += root.val.ToString();
