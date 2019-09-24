@@ -68,6 +68,7 @@
     <Compile Include="Src\LeetCode\Easy\21.cs" />
     <Compile Include="Src\LeetCode\Easy\219.cs" />
     <Compile Include="Src\LeetCode\Easy\404.cs" />
+    <Compile Include="Src\LeetCode\Easy\459.cs" />
     <Compile Include="Src\LeetCode\Easy\720.cs" />
     <Compile Include="Src\LeetCode\Easy\557.cs" />
     <Compile Include="Src\LeetCode\Easy\448.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Src\LeetCode\Easy\100.cs" />
     <Compile Include="Src\LeetCode\Easy\169.cs" />
     <Compile Include="Src\LeetCode\Easy\190.cs" />
+    <Compile Include="Src\LeetCode\Easy\680.cs" />
     <Compile Include="Src\LeetCode\Middle\442.cs" />
     <Compile Include="Src\LeetCode\Middle\90.cs" />
     <Compile Include="Src\LeetCode\Middle\78.cs" />

@@ -5,34 +5,63 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Trie树用来判断前缀
+public class TrieNode
+{
+    public TrieNode[] child = new TrieNode[26]; //子节点数组长度26，0：‘a’，1：‘b’
+    public bool isEnd = false; //记录当前节点是不是一个单词的结束字母
+}
 public class Trie
 {
-    private bool isTrie;
-    private int len;
-    // 所有子节点，供26个
-    public Trie[] tries = new Trie[26];
+    private TrieNode root = new TrieNode();
 
-    public Trie()
+    public Trie(string word) { Insert(word); }
+    public void Insert(string word)
     {
-        isTrie = false;
-    }
-    public void Insert(string str)
-    {
-        if (str.Length == 0)
+        TrieNode currentNode = root;
+        for (int i = 0; i < word.Length; ++i)
         {
-            return;
-        }
-        int i = 0;
-        while (i < str.Length)
-        {
-            if (tries[str[i] - 'a'] == null)
+            char c = word[i];
+            int index = c - 'a';
+            if (currentNode.child[index] == null)
             {
-                tries[str[i] - 'a'] = new Trie();
+                currentNode.child[index] = new TrieNode();
             }
-            ++i;
+            currentNode = currentNode.child[index];
         }
+        currentNode.isEnd = true;//最后的节点为单词的最后一个单词，is_end设置为true
+    }
 
-        isTrie = true;
-        len = i;
+    public bool Search(string word)
+    {
+        TrieNode ptr = root;
+        for (int i = 0; i < word.Length; ++i)
+        {
+            char c = word[i];
+            int index = c - 'a';
+            if (ptr.child[index] == null)
+            {
+                return false;
+            }
+            ptr = ptr.child[index];
+        }
+        return ptr.isEnd;
+        // 如果所有字符都在前缀树中，那么判断最后一个字母结束标志是否为true，
+        // 为true，返回true，说明单词找到，否则，false，没找到
+    }
+
+    public bool StartsWith(string prefix)
+    {
+        TrieNode ptr = root;//从根出发
+        for (int i = 0; i < prefix.Length; ++i)
+        {
+            char c = prefix[i];
+            int index = c - 'a';
+            if (ptr.child[index] == null)
+            {
+                return false;
+            }
+            ptr = ptr.child[index];
+        }
+        return true;
     }
 }
