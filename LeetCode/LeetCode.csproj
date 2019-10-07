@@ -68,6 +68,7 @@
     <Compile Include="Src\LeetCode\Easy\21.cs" />
     <Compile Include="Src\LeetCode\Easy\219.cs" />
     <Compile Include="Src\LeetCode\Easy\404.cs" />
+    <Compile Include="Src\LeetCode\Easy\541.cs" />
     <Compile Include="Src\LeetCode\Easy\443.cs" />
     <Compile Include="Src\LeetCode\Easy\459.cs" />
     <Compile Include="Src\LeetCode\Easy\720.cs" />
