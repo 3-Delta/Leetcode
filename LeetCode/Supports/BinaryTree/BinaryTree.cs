@@ -553,4 +553,18 @@ public class BinaryTree<T>
             RightSideView(root.left, ls, depth + 1);
         }
     }
+    // https://mp.weixin.qq.com/s/424h6H7nGtCOaD4joFKW8A
+    // 二叉树剪枝
+    public BinaryTreeNode<int> root PruneTree(BinaryTreeNode<int> root)
+    {
+        if(root == null) { return null; }
+        root.left = PruneTree(root.left);
+        root.right = PruneTree(root.right);
+
+        // 裁剪叶子
+        if(IsLeaf(root) && root.value == 0)
+        {
+            return null;
+        }
+    }
 }

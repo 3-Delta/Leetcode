@@ -82,6 +82,8 @@ namespace LeetCode
 
             // PriorityTest.Func();
 
+            Console.WriteLine(sizeof(bool));
+
             Console.ReadKey();
         }
     }
