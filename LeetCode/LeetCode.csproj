@@ -46,8 +46,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
+    <Compile Include="Main\Main.cs" />
+    <Compile Include="Main\Main_GoldBook.cs" />
+    <Compile Include="Main\Main_LeetCode.cs" />
+    <Compile Include="Main\Main_Other.cs" />
+    <Compile Include="Main\Main_PointToOffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\FaceGoldBook\1.1.cs" />
+    <Compile Include="Src\FaceGoldBook\1.2.cs" />
+    <Compile Include="Src\FaceGoldBook\2.6.cs" />
+    <Compile Include="Src\FaceGoldBook\5.3.cs" />
+    <Compile Include="Src\LeetCode\Easy\53.cs" />
     <Compile Include="Src\LeetCode\Easy\99999.cs" />
     <Compile Include="Src\LeetCode\Easy\141.cs" />
     <Compile Include="Src\LeetCode\Easy\111.cs" />

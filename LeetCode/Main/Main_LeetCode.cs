@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    class Program
+    class Program_LeetCode
     {
-        static void Main(string[] args)
+        public static bool switchOn = true;
+        public static void Main_LeetCode(string[] args)
         {
-            // leetcode
+            if (!switchOn) { return; }
+
             //TwoSum.Func();
             //TwoNumAdd.Func();
             //LC_14.Func();
@@ -52,6 +54,7 @@ namespace LeetCode
             //_14.Func();
             //_15.Func();
             //_16.Func();
+            //_17.Func();
             //_18.Func();
 
             //_19.Func();
@@ -62,29 +65,11 @@ namespace LeetCode
             _31.Func();
             //_33.Func();
             _34.Func();
+            LC_53.Func();
 
             //_28.Func();
             //_39.Func();
             //_101.Func();
-
-            // 归并测试
-            //_17.Func();
-            //IntArray.MergeDG(new int[] {1, 3, 5, 7, 9, 11 }, new int[] { 0, 2, 4, 6, 8 });
-            //IntArray.Print(IntArray.MergeXunhuan(new int[] { 1, 3, 5, 7, 9, 11 }, new int[] { 0, 2, 4, 6, 8 }));
-
-            // 测试intarray的merge以及链表的merge以及环形链表的clone
-
-            //Console.WriteLine(IntArray.IsSorted(new int[] { 1, 2, 3, 4, 5}));
-            //Console.WriteLine(IntArray.IsSorted(new int[] { 1, 2, 3, 4, 5, 0}));
-            //Console.WriteLine(IntArray.IsSorted(new int[] { 5, 4, 3, 2, 1}, false));
-            //Console.WriteLine(IntArray.IsSorted(new int[] { 5, 4, 3, 2, 1}, false));
-            // Sort.Func();
-
-            // PriorityTest.Func();
-
-            Console.WriteLine(sizeof(bool));
-
-            Console.ReadKey();
         }
     }
 }
