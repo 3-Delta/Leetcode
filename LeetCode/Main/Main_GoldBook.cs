@@ -17,6 +17,7 @@ namespace LeetCode
 
             LC_GoldBook_1_1.Func();
             LC_GoldBook_1_2.Func();
+            LC_GoldBook_1_5.Func();
             LC_GoldBook_5_3.Func();
         }
     }

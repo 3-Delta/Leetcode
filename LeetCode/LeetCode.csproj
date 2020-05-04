@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\FaceGoldBook\1.1.cs" />
     <Compile Include="Src\FaceGoldBook\1.2.cs" />
+    <Compile Include="Src\FaceGoldBook\1.5.cs" />
     <Compile Include="Src\FaceGoldBook\2.6.cs" />
     <Compile Include="Src\FaceGoldBook\5.3.cs" />
     <Compile Include="Src\LeetCode\Easy\53.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Src\LeetCode\Easy\169.cs" />
     <Compile Include="Src\LeetCode\Easy\190.cs" />
     <Compile Include="Src\LeetCode\Easy\680.cs" />
+    <Compile Include="Src\LeetCode\Hard\45.cs" />
     <Compile Include="Src\LeetCode\Middle\442.cs" />
     <Compile Include="Src\LeetCode\Middle\90.cs" />
     <Compile Include="Src\LeetCode\Middle\78.cs" />
