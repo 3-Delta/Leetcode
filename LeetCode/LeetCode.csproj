@@ -57,6 +57,9 @@
     <Compile Include="Src\FaceGoldBook\1.5.cs" />
     <Compile Include="Src\FaceGoldBook\2.6.cs" />
     <Compile Include="Src\FaceGoldBook\5.3.cs" />
+    <Compile Include="Src\LeetCode\Easy\1137.cs" />
+    <Compile Include="Src\LeetCode\Easy\1221.cs" />
+    <Compile Include="Src\LeetCode\Easy\1207.cs" />
     <Compile Include="Src\LeetCode\Easy\53.cs" />
     <Compile Include="Src\LeetCode\Easy\99999.cs" />
     <Compile Include="Src\LeetCode\Easy\141.cs" />
