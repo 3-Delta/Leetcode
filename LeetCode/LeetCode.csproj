@@ -122,6 +122,7 @@
     <Compile Include="Src\LeetCode\Easy\7.cs" />
     <Compile Include="Src\LeetCode\Easy\67.cs" />
     <Compile Include="Src\LeetCode\Hard\CenterNum.cs" />
+    <Compile Include="Src\LeetCode\Middle\98.cs" />
     <Compile Include="Src\PointToOffer\101.cs" />
     <Compile Include="Src\PointToOffer\100.cs" />
     <Compile Include="Src\PointToOffer\18.cs" />
