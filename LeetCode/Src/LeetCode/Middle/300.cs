@@ -34,6 +34,7 @@ public static class LC_300
         return max;
     }
 
+    // 最长非连续递增子序列
     public static int LengthOfLIS(int[] nums)
     {
         /*
@@ -60,7 +61,32 @@ public static class LC_300
             return max;
          */
 
-        int max = 0;
+        int length = nums.Length;
+        if (length <= 0)
+        {
+            return 0;
+        }
+
+        // dp[i]表示以dp[i]结尾的最长的递增序列长度
+        int[] dp = new int[length];
+        dp[0] = 1;
+
+        int max = 1;
+        for (int i = 1; i < length; ++i)
+        {
+            int count = 0;
+            for (int j = 0; j < i; ++j)
+            {
+                if (nums[i] > nums[j])
+                {
+                    count = Math.Max(count, dp[j]);
+                }
+            }
+
+            dp[i] = count + 1;
+            max = Math.Max(max, dp[i]);
+        }
+
         return max;
     }
 }
