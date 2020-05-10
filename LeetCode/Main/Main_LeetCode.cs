@@ -69,6 +69,7 @@ namespace LeetCode
             LC_53.Func();
             LC_98.Func();
             LC_300.Func();
+            LC_5.Func();
 
             //_28.Func();
             //_39.Func();

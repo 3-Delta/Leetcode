@@ -108,6 +108,7 @@
     <Compile Include="Src\LeetCode\Easy\680.cs" />
     <Compile Include="Src\LeetCode\Hard\45.cs" />
     <Compile Include="Src\LeetCode\Middle\236.cs" />
+    <Compile Include="Src\LeetCode\Middle\5.cs" />
     <Compile Include="Src\LeetCode\Middle\300.cs" />
     <Compile Include="Src\LeetCode\Middle\442.cs" />
     <Compile Include="Src\LeetCode\Middle\90.cs" />
