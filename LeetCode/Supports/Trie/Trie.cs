@@ -1,29 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-// Trie树用来判断前缀
-public class TrieNode
-{
+﻿// Trie树用来判断前缀
+public class TrieNode {
     public TrieNode[] child = new TrieNode[26]; //子节点数组长度26，0：‘a’，1：‘b’
     public bool isEnd = false; //记录当前节点是不是一个单词的结束字母
 }
-public class Trie
-{
-    private TrieNode root = new TrieNode();
+public class Trie {
+    private readonly TrieNode root = new TrieNode();
 
-    public Trie(string word) { Insert(word); }
-    public void Insert(string word)
-    {
-        TrieNode currentNode = root;
-        for (int i = 0; i < word.Length; ++i)
-        {
+    public Trie(string word) { this.Insert(word); }
+    public void Insert(string word) {
+        TrieNode currentNode = this.root;
+        for (int i = 0 ; i < word.Length ; ++i) {
             char c = word[i];
             int index = c - 'a';
-            if (currentNode.child[index] == null)
-            {
+            if (currentNode.child[index] == null) {
                 currentNode.child[index] = new TrieNode();
             }
             currentNode = currentNode.child[index];
@@ -31,15 +20,12 @@ public class Trie
         currentNode.isEnd = true;//最后的节点为单词的最后一个单词，is_end设置为true
     }
 
-    public bool Search(string word)
-    {
-        TrieNode ptr = root;
-        for (int i = 0; i < word.Length; ++i)
-        {
+    public bool Search(string word) {
+        TrieNode ptr = this.root;
+        for (int i = 0 ; i < word.Length ; ++i) {
             char c = word[i];
             int index = c - 'a';
-            if (ptr.child[index] == null)
-            {
+            if (ptr.child[index] == null) {
                 return false;
             }
             ptr = ptr.child[index];
@@ -49,15 +35,12 @@ public class Trie
         // 为true，返回true，说明单词找到，否则，false，没找到
     }
 
-    public bool StartsWith(string prefix)
-    {
-        TrieNode ptr = root;//从根出发
-        for (int i = 0; i < prefix.Length; ++i)
-        {
+    public bool StartsWith(string prefix) {
+        TrieNode ptr = this.root;//从根出发
+        for (int i = 0 ; i < prefix.Length ; ++i) {
             char c = prefix[i];
             int index = c - 'a';
-            if (ptr.child[index] == null)
-            {
+            if (ptr.child[index] == null) {
                 return false;
             }
             ptr = ptr.child[index];

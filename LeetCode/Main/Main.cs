@@ -12,10 +12,10 @@ namespace LeetCode
         {
             Console.WriteLine("---------------------------- Start ---------------------------");
 
-            Program_GoldBook.Main_GoldBook(args);
-            Program_LeetCode.Main_LeetCode(args);
+            //Program_GoldBook.Main_GoldBook(args);
+            //Program_LeetCode.Main_LeetCode(args);
             Program_PointToOffer.Main_PointToOffer(args);
-            Program_Other.Main_Other(args);
+            //Program_Other.Main_Other(args);
 
             Console.WriteLine("---------------------------- End ---------------------------");
             Console.ReadKey();

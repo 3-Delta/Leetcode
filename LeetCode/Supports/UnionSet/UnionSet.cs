@@ -25,9 +25,9 @@ public class UnionSet
         // 路径压缩,提高查找效率
         while (son != root) //路径压缩
         {
-            int tmp = set[son]; // 获取son的上级
+            int parent = set[son]; // 获取son的上级
             set[son] = root;    // 设置son的新上级为root
-            son = tmp;          // son的老上级为新的son
+            son = parent;          // son的老上级为新的son
         }
         return root;
     }

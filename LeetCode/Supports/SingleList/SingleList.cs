@@ -1,115 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
-public class SingleListNode<T>
-{
+public class SingleListNode<T> {
     public T value;
     public SingleListNode<T> next = null;
 
-    public SingleListNode() : this(default(T), null) {}
+    public SingleListNode() : this(default(T), null) { }
     public SingleListNode(T value, SingleListNode<T> next = null) : this(value, next, null) { }
-    public SingleListNode(T value, SingleListNode<T> next, SingleListNode<T> prev)
-    {
+    public SingleListNode(T value, SingleListNode<T> next, SingleListNode<T> prev) {
         this.value = value;
         this.next = next;
-        if (prev != null)
-        {
+        if (prev != null) {
             prev.next = this;
         }
     }
-    public void Reset()
-    {
+    public void Reset() {
         this.value = default(T);
         this.next = null;
     }
 }
-public class SingleList<T>
-{
+public class SingleList<T> {
     public SingleListNode<T> head = null;
 
     public SingleList() { }
-    public SingleList(List<T> elements, bool circle = false)
-    {
-        CreateXunHuan(elements, circle);
+    public SingleList(List<T> elements, bool circle = false) {
+        this.CreateXunHuan(elements, circle);
     }
-    public SingleList(SingleListNode<T> targetHead)
-    {
-        if (targetHead != null)
-        {
+    public SingleList(SingleListNode<T> targetHead) {
+        if (targetHead != null) {
             int i = 0;
             SingleListNode<T> prev = null;
-            for (var node = targetHead; node != null; node = node.next)
-            {
+            for (var node = targetHead ; node != null ; node = node.next) {
                 // 环形链表出口，否则死循环
-                if (targetHead == node && prev != null)
-                {
+                if (targetHead == node && prev != null) {
                     // 构造环形链表
-                    prev.next = head;
+                    prev.next = this.head;
                     return;
                 }
                 prev = new SingleListNode<T>(node.value, null, prev);
-                if (i == 0)
-                {
-                    head = prev;
+                if (i == 0) {
+                    this.head = prev;
                 }
                 ++i;
             }
         }
     }
     public SingleList(SingleList<T> target) : this(target?.head) { }
-    public void CreateXunHuan(List<T> elements, bool circle = false)
-    {
-        if (elements != null && elements.Count > 0)
-        {
+    public void CreateXunHuan(List<T> elements, bool circle = false) {
+        if (elements != null && elements.Count > 0) {
             SingleListNode<T> prev = null;
-            for (int i = 0, count = elements.Count; i < count; ++i)
-            {
+            for (int i = 0, count = elements.Count ; i < count ; ++i) {
                 prev = new SingleListNode<T>(elements[i], null, prev);
-                if (i == 0) { head = prev; }
+                if (i == 0) { this.head = prev; }
             }
 
-            if (circle)
-            {
-                prev.next = head;
+            if (circle) {
+                prev.next = this.head;
             }
         }
     }
-    public void CreateDG(List<T> elements, SingleListNode<T> prev = null, int index = 0, bool circle = false)
-    {
-        if (elements != null && elements.Count > 0)
-        {
-            if (index < elements.Count)
-            {
+    public void CreateDG(List<T> elements, SingleListNode<T> prev = null, int index = 0, bool circle = false) {
+        if (elements != null && elements.Count > 0) {
+            if (index < elements.Count) {
                 prev = new SingleListNode<T>(elements[index], null, prev);
-                if (index == 0) { head = prev; }
-                CreateDG(elements, prev, index + 1, circle);
+                if (index == 0) { this.head = prev; }
+                this.CreateDG(elements, prev, index + 1, circle);
             }
-            else
-            {
-                prev.next = head;
+            else {
+                prev.next = this.head;
             }
         }
     }
-    public void Clear()
-    {
-        head.next = null;
+    public void Clear() {
+        this.head.next = null;
     }
-    public static SingleList<int> Add(SingleList<int> left, SingleList<int> right)
-    {
+    public static SingleList<int> Add(SingleList<int> left, SingleList<int> right) {
         SingleList<int> ret = null;
-        if (left != null && right != null)
-        {
+        if (left != null && right != null) {
             SingleListNode<int> leftCurrent = left.head;
             SingleListNode<int> rightCurrent = right.head;
             List<int> nums = new List<int>();
             int jin = 0;
             int sum = 0;
-            while (leftCurrent != null && rightCurrent != null)
-            {
+            while (leftCurrent != null && rightCurrent != null) {
                 sum = leftCurrent.value + rightCurrent.value + jin;
                 nums.Add(sum % 10);
                 jin = sum / 10;
@@ -117,16 +91,14 @@ public class SingleList<T>
                 leftCurrent = leftCurrent.next;
                 rightCurrent = rightCurrent.next;
             }
-            while (leftCurrent != null)
-            {
+            while (leftCurrent != null) {
                 sum = leftCurrent.value + jin;
                 nums.Add(sum % 10);
                 jin = sum / 10;
 
                 leftCurrent = leftCurrent.next;
             }
-            while (rightCurrent != null)
-            {
+            while (rightCurrent != null) {
                 sum = rightCurrent.value + jin;
                 nums.Add(sum % 10);
                 jin = sum / 10;
@@ -139,316 +111,250 @@ public class SingleList<T>
         }
         return ret;
     }
-    public void PrintXunhuanPre()
-    {
+    public void PrintXunhuanPre() {
         int circle = 0;
-        for (SingleListNode<T> current = head; current != null; current = current.next)
-        {
-            if (current == head ) { ++circle; }
-            if (circle > 1)
-            {
+        for (SingleListNode<T> current = this.head ; current != null ; current = current.next) {
+            if (current == this.head) { ++circle; }
+            if (circle > 1) {
                 break;
             }
             Console.WriteLine(current.value);
         }
         Console.WriteLine("Over");
     }
-    public void PrintXunhuanPost()
-    {
+    public void PrintXunhuanPost() {
         Stack<SingleListNode<T>> stack = new Stack<SingleListNode<T>>();
-        for (SingleListNode<T> current = head; current != null; current = current.next)
-        {
+        for (SingleListNode<T> current = this.head ; current != null ; current = current.next) {
             stack.Push(current);
         }
-        foreach (SingleListNode<T> current in stack)
-        {
+        foreach (SingleListNode<T> current in stack) {
             Console.WriteLine(current);
         }
         Console.WriteLine("Over");
     }
-    public void PrintDGPre(SingleListNode<T> head)
-    {
-        if (head != null)
-        {
+    public void PrintDGPre(SingleListNode<T> head) {
+        if (head != null) {
             Console.WriteLine(head.value);
-            PrintDGPre(head.next);
+            this.PrintDGPre(head.next);
         }
-        else
-        {
+        else {
             Console.WriteLine("Over");
         }
     }
-    public void PrintDGPost(SingleListNode<T> head)
-    {
-        if (head != null)
-        {
-            PrintDGPost(head.next);
+    public void PrintDGPost(SingleListNode<T> head) {
+        if (head != null) {
+            this.PrintDGPost(head.next);
             Console.WriteLine(head.value);
         }
-        else
-        {
+        else {
             Console.WriteLine("Over");
         }
     }
-    public void DeleteValue(T value)
-    {
+    public void DeleteValue(T value) {
         SingleListNode<T> prew = null;
         SingleListNode<T> newHead = null;
-        SingleListNode<T> current = head;
-        while (current != null)
-        {
+        SingleListNode<T> current = this.head;
+        while (current != null) {
             SingleListNode<T> next = current.next;
-            if (current.value.Equals(value))
-            {
-                if (prew == null)
-                {
+            if (current.value.Equals(value)) {
+                if (prew == null) {
                     newHead = next;
                 }
-                else
-                {
+                else {
                     prew.next = next;
                 }
             }
-            else
-            {
+            else {
                 prew = current;
             }
             current = next;
         }
 
-        head = newHead;
+        this.head = newHead;
     }
-    public void Delete(T value)
-    {
-        Delete(FindXunhuan(value));
+    public void Delete(T value) {
+        this.Delete(this.FindXunhuan(value));
     }
     // 非循环列表O(1)删除node
-    public void Delete(SingleListNode<T> node)
-    {
-        if (node != null)
-        {
-            if (head == node)
-            {
-                head = head.next;
+    public void Delete(SingleListNode<T> node) {
+        if (node != null) {
+            if (this.head == node) {
+                this.head = this.head.next;
             }
-            else
-            {
+            else {
                 // 如果是尾指针
-                if (node.next == null)
-                {
-                    var iter = head;
-                    while (iter != null && !iter.next.Equals(node))
-                    {
+                if (node.next == null) {
+                    var iter = this.head;
+                    while (iter != null && !iter.next.Equals(node)) {
                         iter = iter.next;
                     }
                     iter.next = null;
                 }
-                else
-                {
+                else {
                     node.value = node.next.value;
                     node.next = node.next.next;
                 }
             }
         }
     }
-    public SingleListNode<T> BackN(int n)
-    {
+    public SingleListNode<T> BackN(int n) {
         SingleListNode<T> left = null;
-        SingleListNode<T> right = head;
+        SingleListNode<T> right = this.head;
 
         if (n <= 0) { return left; }
 
-        for(int i = 0; i < n; ++ i)
-        {
+        for (int i = 0 ; i < n ; ++i) {
             // 个数不足n个节点
-            if (right == null)
-            {
+            if (right == null) {
                 return left;
             }
             right = right.next;
         }
 
-        left = head;
-        for (; right != null; left = left.next, right = right.next) {  }
+        left = this.head;
+        for (; right != null ; left = left.next, right = right.next) { }
         return left;
     }
-    public bool IsCircle()
-    {
+    public bool IsCircle() {
         bool ret = false;
-        SingleListNode<T> fast = head;
-        SingleListNode<T> slow = head;
+        SingleListNode<T> fast = this.head;
+        SingleListNode<T> slow = this.head;
 
-        while (fast != null)
-        {
+        while (fast != null) {
             int i = 0;
-            while (i < 2 && fast != null)
-            {
+            while (i < 2 && fast != null) {
                 fast = fast.next;
                 ++i;
             }
             slow = slow.next;
 
-            if (slow.Equals(fast))
-            {
+            if (slow.Equals(fast)) {
                 ret = true;
                 break;
             }
         }
         return ret;
     }
-    public void ReverseXunhuan()
-    {
+    public void ReverseXunhuan() {
         // 完美的解决方法
         SingleListNode<T> prev = null;
-        for (SingleListNode<T> current = head; current != null;)
-        {
+        for (SingleListNode<T> current = this.head ; current != null ;) {
             SingleListNode<T> next = current.next;
             current.next = prev;
             prev = current;
             current = next;
         }
-        head = prev;
+        this.head = prev;
     }
-    public void ReverseDG()
-    {
-        head = ReverseDG(head, null);
+    public void ReverseDG() {
+        this.head = this.ReverseDG(this.head, null);
     }
-    public SingleListNode<T> ReverseDG(SingleListNode<T> head, SingleListNode<T> prev)
-    {
+    public SingleListNode<T> ReverseDG(SingleListNode<T> head, SingleListNode<T> prev) {
         SingleListNode<T> ret = null;
-        if (head != null)
-        {
+        if (head != null) {
             SingleListNode<T> next = head.next;
             head.next = prev;
-            ret = ReverseDG(next, head);
+            ret = this.ReverseDG(next, head);
         }
-        else
-        {
+        else {
             ret = prev;
         }
         return ret;
     }
-    public SingleListNode<T> FindXunhuan(T value)
-    {
-        SingleListNode<T> ret = head;
-        for (; ret != null; ret = ret.next)
-        {
-            if (ret.value.Equals(value))
-            {
+    public SingleListNode<T> FindXunhuan(T value) {
+        SingleListNode<T> ret = this.head;
+        for (; ret != null ; ret = ret.next) {
+            if (ret.value.Equals(value)) {
                 break;
             }
         }
         return ret;
     }
-    public SingleListNode<T> FindDG(T value)
-    {
-        return FindDG(head, value);
+    public SingleListNode<T> FindDG(T value) {
+        return this.FindDG(this.head, value);
     }
-    public SingleListNode<T> FindDG(SingleListNode<T> head, T value)
-    {
+    public SingleListNode<T> FindDG(SingleListNode<T> head, T value) {
         SingleListNode<T> ret = head;
-        if (ret != null)
-        {
-            if (!ret.value.Equals(value))
-            {
-                ret = FindDG(ret.next, value);
+        if (ret != null) {
+            if (!ret.value.Equals(value)) {
+                ret = this.FindDG(ret.next, value);
             }
         }
         return ret;
     }
-    public static SingleList<T> Connect(SingleList<T> left, SingleList<T> right)
-    {
+    public static SingleList<T> Connect(SingleList<T> left, SingleList<T> right) {
         SingleList<T> ret = null;
         return ret;
     }
-    public static SingleListNode<int> MergeOldDg(SingleListNode<int> left, SingleListNode<int> right)
-    {
+    public static SingleListNode<int> MergeOldDg(SingleListNode<int> left, SingleListNode<int> right) {
         if (left == null) // 注意这里条件是： == null,而不是!= null
         {
             return right;
         }
-        else if (right == null)
-        {
+        else if (right == null) {
             return left;
         }
-        else
-        {
+        else {
             SingleListNode<int> subHead;
-            if (left.value < right.value)
-            {
+            if (left.value < right.value) {
                 subHead = MergeOldDg(left.next, right);
                 left.next = subHead;
                 return left;
             }
-            else
-            {
+            else {
                 subHead = MergeOldDg(left, right.next);
                 right.next = subHead;
                 return right;
             }
         }
     }
-    public static SingleListNode<int> MergeOld(SingleListNode<int> l1, SingleListNode<int> l2)
-    {
+    public static SingleListNode<int> MergeOld(SingleListNode<int> l1, SingleListNode<int> l2) {
         SingleListNode<int> retHead = null;
         SingleListNode<int> prew = null;
         bool first = true;
-        while (l1 != null && l2 != null)
-        {
+        while (l1 != null && l2 != null) {
             bool flag = l1.value < l2.value;
-            if (flag)
-            {
-                if (first)
-                {
+            if (flag) {
+                if (first) {
                     first = false;
                     prew = retHead = l1;
                 }
-                else
-                {
+                else {
                     prew.next = l1;
                     prew = prew.next;
                 }
                 l1 = l1.next;
             }
-            else
-            {
-                if (first)
-                {
+            else {
+                if (first) {
                     first = false;
                     prew = retHead = l2;
                 }
-                else
-                {
+                else {
                     prew.next = l2;
                     prew = prew.next;
                 }
                 l2 = l2.next;
             }
         }
-        while (l2 != null)
-        {
-            if (first)
-            {
+        while (l2 != null) {
+            if (first) {
                 first = false;
                 retHead = prew = l2;
             }
-            else
-            {
+            else {
                 // 先设置next
                 prew.next = l2;
                 prew = prew.next;
             }
             l2 = l2.next;
         }
-        while (l1 != null)
-        {
-            if (first)
-            {
+        while (l1 != null) {
+            if (first) {
                 first = false;
                 retHead = prew = l1;
             }
-            else
-            {
+            else {
                 prew.next = l1;
                 prew = prew.next;
             }
@@ -456,156 +362,125 @@ public class SingleList<T>
         }
         return retHead;
     }
-    public static SingleList<int> Merge(SingleList<int> left, SingleList<int> right)
-    {
+    public static SingleList<int> Merge(SingleList<int> left, SingleList<int> right) {
         SingleList<int> ret = null;
 
-        if (left != null && right != null)
-        {
+        if (left != null && right != null) {
             ret = new SingleList<int>();
 
             SingleListNode<int> leftNode = left.head;
             SingleListNode<int> rightNode = right.head;
             SingleListNode<int> prew = null;
 
-            while (leftNode != null && rightNode != null)
-            {
+            while (leftNode != null && rightNode != null) {
                 prew = new SingleListNode<int>(0, null, prew);
-                if (leftNode.value < rightNode.value)
-                {
+                if (leftNode.value < rightNode.value) {
                     prew.value = leftNode.value;
                     leftNode = leftNode.next;
                 }
-                else
-                {
+                else {
                     prew.value = rightNode.value;
                     rightNode = rightNode.next;
                 }
                 if (ret.head == null) { ret.head = prew; }
             }
-            while (leftNode != null)
-            {
+            while (leftNode != null) {
                 prew = new SingleListNode<int>(leftNode.value, null, prew);
                 leftNode = leftNode.next;
                 if (ret.head == null) { ret.head = prew; }
             }
-            while (rightNode != null)
-            {
+            while (rightNode != null) {
                 prew = new SingleListNode<int>(rightNode.value, null, prew);
                 rightNode = rightNode.next;
                 if (ret.head == null) { ret.head = prew; }
             }
         }
-        else if (left != null)
-        {
+        else if (left != null) {
             ret = new SingleList<int>(left);
         }
-        else
-        {
+        else {
             ret = new SingleList<int>(right);
         }
 
         return ret;
     }
 
-    public static SingleList<int> MergeDG(SingleList<int> left, SingleList<int> right)
-    {
+    public static SingleList<int> MergeDG(SingleList<int> left, SingleList<int> right) {
         return new SingleList<int>(MergeDG(left.head, right.head));
     }
-    public static SingleListNode<int> MergeDG(SingleListNode<int> left, SingleListNode<int> right)
-    {
+    public static SingleListNode<int> MergeDG(SingleListNode<int> left, SingleListNode<int> right) {
         SingleListNode<int> ret = null;
-        if (left != null && right != null)
-        {
-            if (left.value < right.value)
-            {
+        if (left != null && right != null) {
+            if (left.value < right.value) {
                 ret = new SingleListNode<int>(left.value);
                 ret.next = MergeDG(left.next, right);
             }
-            else
-            {
+            else {
                 ret = new SingleListNode<int>(right.value);
                 ret.next = MergeDG(left, right.next);
             }
         }
         // 两个递归出口
-        else if (left != null)
-        {
+        else if (left != null) {
             ret = left;
         }
-        else if (right != null)
-        {
+        else if (right != null) {
             ret = right;
         }
         return ret;
     }
-    public void DeleteBackK(int k)
-    {
-        SingleListNode<T> node = FindBackK(k);
-        if (node != null)
-        {
-            if (node == head)
-            {
-                head = head.next;
+    public void DeleteBackK(int k) {
+        SingleListNode<T> node = this.FindBackK(k);
+        if (node != null) {
+            if (node == this.head) {
+                this.head = this.head.next;
             }
-            else if (node.next != null)
-            {
+            else if (node.next != null) {
                 SingleListNode<T> next = node.next;
                 node.value = next.value;
                 node.next = next.next;
             }
-            else
-            {
-                SingleListNode<T> pre = head;
-                while (pre.next != node)
-                {
+            else {
+                SingleListNode<T> pre = this.head;
+                while (pre.next != node) {
                     pre = pre.next;
                 }
                 pre.next = null;
             }
         }
     }
-    public SingleListNode<T> FindBackK(int k)
-    {
-        SingleListNode<T> right = head;
-        for (int i = 0; i < k; ++i)
-        {
-            if (right == null)
-            {
+    public SingleListNode<T> FindBackK(int k) {
+        SingleListNode<T> right = this.head;
+        for (int i = 0 ; i < k ; ++i) {
+            if (right == null) {
                 return null;
             }
-            else
-            {
+            else {
                 right = right.next;
             }
         }
 
-        SingleListNode<T> left = head;
-        while (right != null)
-        {
+        SingleListNode<T> left = this.head;
+        while (right != null) {
             right = right.next;
             left = left.next;
         }
         return left;
     }
 
-    public SingleListNode<T> DeleteDuplicates(SingleListNode<T> head)
-    {
+    public SingleListNode<T> DeleteDuplicates(SingleListNode<T> head) {
         if (head == null) { return null; }
 
         SingleListNode<T> left = head;
         SingleListNode<T> right = head.next;
 
-        while (right != null)
-        {
-            if (right.value.Equals(left.value))
-            {
+        while (right != null) {
+            if (right.value.Equals(left.value)) {
                 SingleListNode<T> next = right.next;
                 left.next = next;
                 right = next;
             }
-            else
-            {
+            else {
                 left = right;
                 right = right.next;
             }
@@ -614,21 +489,17 @@ public class SingleList<T>
         return head;
     }
 
-    public void ReverseKGroup(SingleListNode<int> prew, SingleListNode<int> left, SingleListNode<int> right)
-    {
+    public void ReverseKGroup(SingleListNode<int> prew, SingleListNode<int> left, SingleListNode<int> right) {
         // 前闭后开逆置
         // 使用头插法逆置
         SingleListNode<int> leftPrew = left;
-        while (left != right)
-        {
+        while (left != right) {
             SingleListNode<int> prewNext = prew.next;
             SingleListNode<int> leftNext = left.next;
-            if (prewNext == left)
-            {
+            if (prewNext == left) {
                 left = leftNext;
             }
-            else
-            {
+            else {
                 prew.next = left;
                 left.next = prewNext;
                 leftPrew.next = leftNext;
@@ -636,16 +507,14 @@ public class SingleList<T>
             }
         }
     }
-    public SingleListNode<T> RotateRight(SingleListNode<T> head, int k)
-    {
+    public SingleListNode<T> RotateRight(SingleListNode<T> head, int k) {
         // 注意k == count的時候，和形成环形的先后顺序。
         if (k <= 0) { return head; }
 
         SingleListNode<T> prew = null;
         SingleListNode<T> current = head;
         int count = 0;
-        while (current != null)
-        {
+        while (current != null) {
             ++count;
             prew = current;
             current = current.next;
@@ -653,8 +522,7 @@ public class SingleList<T>
 
         if (count == 0) { return head; }
         k = k % count;
-        if (k == 0)
-        {
+        if (k == 0) {
             return head;
         }
         if (prew != null)
@@ -665,8 +533,7 @@ public class SingleList<T>
             prew = null;
             int diff = count - k;
             int i = 0;
-            while (current != null && i < diff)
-            {
+            while (current != null && i < diff) {
                 prew = current;
                 current = current.next;
                 ++i;

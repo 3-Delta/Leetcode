@@ -12,7 +12,7 @@ namespace LeetCode
         public static bool switchOn = false;
         public static void Main_PointToOffer(string[] args)
         {
-            if (!switchOn) { return; }
+            _49.Func();
         }
     }
 }
